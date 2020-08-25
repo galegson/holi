@@ -19,16 +19,20 @@ pipeline {
                 sh 'mvn package'
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Hello World'
-            }
-        }
         stage('test') {
             steps {
-                echo 'Hello test'
+                sh 'mvn test'
             }
-        }   
-    }
+        }
+      stage ('build and publish image') {
+      steps {
+        script {
+          checkout scm
+          docker.withRegistry('', 'dockerID') {
+          def customImage = docker.build("galegson/holi-pipeline:${env.BUILD_ID}")
+          customImage.push()
+          }
+        }
+      }
  }
 
