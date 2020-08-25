@@ -30,9 +30,10 @@ pipeline {
           checkout scm
           docker.withRegistry('', 'dockerID') {
           def customImage = docker.build("galegson/holi-pipeline:${env.BUILD_ID}")
-          customImage.push()
-          }
+              customImage.push() 
+          }         
         }
       }
+    }
  }
 
