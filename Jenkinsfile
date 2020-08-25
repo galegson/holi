@@ -12,11 +12,13 @@ pipeline {
             steps {
                 echo 'Hello World'
             }
-        }stage('Deploy') {
+        }
+        stage('Deploy') {
             steps {
                 echo 'Hello World'
             }
-        }stage('test') {
+        }
+        stage('test') {
             steps {
                 echo 'Hello test'
             }
