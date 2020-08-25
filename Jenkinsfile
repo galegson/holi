@@ -28,7 +28,7 @@ pipeline {
       steps {
         script {
           checkout scm
-          docker.withRegistry('dockerID') {
+          docker.withRegistry(' ', 'dockerID') {
           def customImage = docker.build("galegson/holi-pipeline:${env.BUILD_ID}")
               customImage.push() 
           }         
