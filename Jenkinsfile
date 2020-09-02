@@ -6,6 +6,8 @@ pipeline {
     tools {
         maven 'M2_HOME'
     }
+    
+   
 
     stages {
         
@@ -35,11 +37,12 @@ pipeline {
         
     }
 }
+
 	stage ('deployment trigger'){
             steps {
-	      build 'holi-CD
+	      build 'hol-CD
 
 	      }
 	 }
-}
+       }
 }
