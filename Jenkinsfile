@@ -3,12 +3,12 @@ pipeline {
     triggers {
         pollSCM '* * * * *'
     }
+    
     tools {
         maven 'M2_HOME'
     }
     
-   
-
+       
     stages {
         
        stage('build') {
@@ -38,6 +38,7 @@ pipeline {
     }
 }
 
+
 	stage ('deployment trigger'){
             steps {
 	      build 'hol-CD
@@ -45,4 +46,12 @@ pipeline {
 	      }
 	 }
        }
+
+        stage ( 'deployment trigger') {
+            steps {
+                build 'hol-CD'
+            }
+        }        
+}
+
 }
